@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "58FDFEF81861B4AA00C9D11E"
                BuildableName = "TKGallary.app"
-               BlueprintName = "TKGallary"
-               ReferencedContainer = "container:TKGallary.xcodeproj">
+               BlueprintName = "TKGallery"
+               ReferencedContainer = "container:TKGallery.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "58FDFF191861B4AA00C9D11E"
                BuildableName = "TKGallaryTests.xctest"
-               BlueprintName = "TKGallaryTests"
-               ReferencedContainer = "container:TKGallary.xcodeproj">
+               BlueprintName = "TKGalleryTests"
+               ReferencedContainer = "container:TKGallery.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58FDFEF81861B4AA00C9D11E"
             BuildableName = "TKGallary.app"
-            BlueprintName = "TKGallary"
-            ReferencedContainer = "container:TKGallary.xcodeproj">
+            BlueprintName = "TKGallery"
+            ReferencedContainer = "container:TKGallery.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58FDFEF81861B4AA00C9D11E"
             BuildableName = "TKGallary.app"
-            BlueprintName = "TKGallary"
-            ReferencedContainer = "container:TKGallary.xcodeproj">
+            BlueprintName = "TKGallery"
+            ReferencedContainer = "container:TKGallery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58FDFEF81861B4AA00C9D11E"
             BuildableName = "TKGallary.app"
-            BlueprintName = "TKGallary"
-            ReferencedContainer = "container:TKGallary.xcodeproj">
+            BlueprintName = "TKGallery"
+            ReferencedContainer = "container:TKGallery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
