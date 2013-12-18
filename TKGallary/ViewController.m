@@ -35,7 +35,7 @@ static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.contentView setBackgroundColor:[UIColor whiteColor]];
+    [self.contentView setBackgroundColor:[UIColor grayColor]];
     
     self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
@@ -98,7 +98,7 @@ static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
      */
     int N = imageViews.count;
     CGRect newFrames[N];
-    float ideal_height = MAX(frameSize.height, frameSize.width) /4;
+    float ideal_height = MAX(frameSize.height, frameSize.width) /2.5;
     float seq[N];
     float total_width = 0;
     for (int i = 0; i < imageViews.count; i++) {
