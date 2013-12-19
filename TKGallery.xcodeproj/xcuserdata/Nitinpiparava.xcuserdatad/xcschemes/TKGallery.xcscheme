@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "58FDFEF81861B4AA00C9D11E"
-               BuildableName = "TKGallary.app"
+               BuildableName = "TKGallery.app"
                BlueprintName = "TKGallery"
                ReferencedContainer = "container:TKGallery.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "58FDFF191861B4AA00C9D11E"
-               BuildableName = "TKGallaryTests.xctest"
+               BuildableName = "TKGalleryTests.xctest"
                BlueprintName = "TKGalleryTests"
                ReferencedContainer = "container:TKGallery.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58FDFEF81861B4AA00C9D11E"
-            BuildableName = "TKGallary.app"
+            BuildableName = "TKGallery.app"
             BlueprintName = "TKGallery"
             ReferencedContainer = "container:TKGallery.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58FDFEF81861B4AA00C9D11E"
-            BuildableName = "TKGallary.app"
+            BuildableName = "TKGallery.app"
             BlueprintName = "TKGallery"
             ReferencedContainer = "container:TKGallery.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58FDFEF81861B4AA00C9D11E"
-            BuildableName = "TKGallary.app"
+            BuildableName = "TKGallery.app"
             BlueprintName = "TKGallery"
             ReferencedContainer = "container:TKGallery.xcodeproj">
          </BuildableReference>

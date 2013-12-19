@@ -28,6 +28,8 @@
     ViewController *galleryCtrl = [[ViewController alloc] initWithImages:images];
     
     UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:galleryCtrl];
+    [[nav navigationBar] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor purpleColor]}];
+    [nav.navigationBar setBarTintColor:[UIColor lightGrayColor]];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;

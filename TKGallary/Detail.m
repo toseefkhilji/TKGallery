@@ -22,7 +22,7 @@
     if (self) {
         index=indx;
         self.images = images;
-        self.title =[NSString stringWithFormat:@"%d of %d",index+1,self.images.count+1];
+        self.title =[NSString stringWithFormat:@"%d of %d",index+1,(int)self.images.count+1];
         
     }
     return self;
@@ -40,10 +40,13 @@
 {
     [super viewDidLoad];
     
+    
     self.imageView.image=self.images[index];
     [self.view layoutIfNeeded];
 
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(imageShare:)];
+    
+      //  self.navigationController.navigationBar.barTintColor=[UIColor brownColor];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(deviceOrientationChange)
@@ -63,7 +66,7 @@
     if (index<[self.images count]-1)
     {
         index++;
-        self.title =[NSString stringWithFormat:@"%d of %d",index+1,self.images.count+1];
+        self.title =[NSString stringWithFormat:@"%d of %d",index+1,(int)self.images.count+1];
         self.imageView.image=self.images[index];
         [self slideNext:self.imageView];
     }    
@@ -74,7 +77,7 @@
     if (index>0)
     {
         index--;
-        self.title =[NSString stringWithFormat:@"%d of %d",index+1,self.images.count+1];
+        self.title =[NSString stringWithFormat:@"%d of %d",index+1,(int)self.images.count+1];
         self.imageView.image=self.images[index];
         [self slidePrev:self.imageView];
     }

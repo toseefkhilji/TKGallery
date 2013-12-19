@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
@@ -20,10 +20,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baE-2t-LcC">
+                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baE-2t-LcC">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="da9-xc-XHW" appends="YES" id="YOo-Lw-o0G"/>
+                                <outletCollection property="gestureRecognizers" destination="xd3-Vj-Yto" appends="YES" id="3cu-lY-A1M"/>
+                            </connections>
                         </imageView>
                     </subviews>
                     <constraints>
@@ -61,5 +65,15 @@
                 <action selector="gotoPrev:" destination="-1" id="XtJ-QM-zgR"/>
             </connections>
         </swipeGestureRecognizer>
+        <pinchGestureRecognizer id="da9-xc-XHW">
+            <connections>
+                <action selector="handlePinch:" destination="-1" id="udf-BU-4la"/>
+            </connections>
+        </pinchGestureRecognizer>
+        <rotationGestureRecognizer id="xd3-Vj-Yto">
+            <connections>
+                <action selector="handleRotate:" destination="-1" id="Xs8-KH-yEA"/>
+            </connections>
+        </rotationGestureRecognizer>
     </objects>
 </document>

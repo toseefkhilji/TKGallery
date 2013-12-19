@@ -80,9 +80,8 @@ static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
 - (void) myTapMethod:(UIGestureRecognizer *)sender
 {
     
-    NSLog(@"%d",sender.view.tag);
     
- Detail *d=[[Detail alloc]initWithImages:self.images WithNibName:@"Detail" bundle:nil idx:sender.view.tag];
+ Detail *d=[[Detail alloc]initWithImages:self.images WithNibName:@"Detail" bundle:nil idx:(int)sender.view.tag];
  [self.navigationController pushViewController:d animated:YES];
 }
 - (void)deviceOrientationChange {
@@ -96,9 +95,9 @@ static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
     /**
      Linear Partition
      */
-    int N = imageViews.count;
+    int N = (int)imageViews.count;
     CGRect newFrames[N];
-    float ideal_height = MAX(frameSize.height, frameSize.width) /2.5;
+    float ideal_height = MAX(frameSize.height, frameSize.width) /3.5;
     float seq[N];
     float total_width = 0;
     for (int i = 0; i < imageViews.count; i++) {
