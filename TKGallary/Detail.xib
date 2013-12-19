@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Detail">
             <connections>
                 <outlet property="imageView" destination="baE-2t-LcC" id="uYe-d9-18X"/>
+                <outlet property="scroll" destination="AEh-6i-80D" id="RTs-Sr-0Ei"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>

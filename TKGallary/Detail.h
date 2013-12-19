@@ -11,8 +11,10 @@
 @interface Detail : UIViewController
 {
     int index;
+    enum myViewMode mode;
+
 }
-- (id)initWithImages:(NSArray *)images WithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil idx:(int)indx;
+- (id)initWithImages:(NSArray *)images WithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil idx:(int)indx andMode:(int)modes;
 
 @property (nonatomic, strong) NSArray *images;
 

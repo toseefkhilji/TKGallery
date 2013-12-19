@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "HomeViewController.h"
 
 @implementation AppDelegate
 
@@ -15,26 +15,32 @@
 {
     // Override point for customization after application launch.
     
-    NSMutableArray *images = [NSMutableArray array];
-    for (int i = 0; i <= 15; i++) {
-        NSString *fileName = [NSString stringWithFormat:@"%02i.jpg", i];
-        [images addObject:[UIImage imageNamed:fileName]];
-    }
-    for (int i = 0; i <= 15; i++) {
-        [images exchangeObjectAtIndex:i withObjectAtIndex:arc4random_uniform(15)];
-    }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    ViewController *galleryCtrl = [[ViewController alloc] initWithImages:images];
+    
+    
+    UIView *v=[[UIView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    v.backgroundColor=[UIColor redColor];
+    [self.window addSubview:v];
+    
+    [self.window makeKeyAndVisible];
+
+    HomeViewController *galleryCtrl = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     
     UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:galleryCtrl];
-    [[nav navigationBar] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor purpleColor]}];
-    [nav.navigationBar setBarTintColor:[UIColor lightGrayColor]];
+    [[nav navigationBar] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor orangeColor]}];
+    
+    if ([nav respondsToSelector:@selector(setBarTintColor:)])
+        [nav.navigationBar setBarTintColor:[UIColor whiteColor]];
+    
+    
+    [v removeFromSuperview];
     self.window.rootViewController = nav;
-    [self.window makeKeyAndVisible];
     return YES;
 }
-							
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

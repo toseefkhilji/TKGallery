@@ -7,20 +7,23 @@
 //
 
 #import "Detail.h"
-
+#import "AsyncImageView.h"
 @interface Detail ()
 
 @property(nonatomic,strong)IBOutlet UIImageView *imageView;
+@property(nonatomic,strong)IBOutlet UIScrollView *scroll;
+
 @end
 
 @implementation Detail
 
 
-- (id)initWithImages:(NSArray *)images WithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil idx:(int)indx
+- (id)initWithImages:(NSArray *)images WithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil idx:(int)indx andMode:(int)modes
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         index=indx;
+        mode=modes;
         self.images = images;
         self.title =[NSString stringWithFormat:@"%d of %d",index+1,(int)self.images.count+1];
         
@@ -41,7 +44,15 @@
     [super viewDidLoad];
     
     
+    if (mode==mLoadStaticImages)
     self.imageView.image=self.images[index];
+    else
+    {
+        AsyncImageView *a=self.images[index];
+        UIImageView *i=(UIImageView*)[a viewWithTag:203];
+        self.imageView.image=i.image;
+        
+    }
     [self.view layoutIfNeeded];
 
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(imageShare:)];
@@ -67,8 +78,17 @@
     {
         index++;
         self.title =[NSString stringWithFormat:@"%d of %d",index+1,(int)self.images.count+1];
-        self.imageView.image=self.images[index];
-        [self slideNext:self.imageView];
+       // self.imageView.image=self.images[index];
+        if (mode==mLoadStaticImages)
+            self.imageView.image=self.images[index];
+        else
+        {
+            AsyncImageView *a=self.images[index];
+            UIImageView *i=(UIImageView*)[a viewWithTag:203];
+            self.imageView.image=i.image;
+            
+        }
+        [self slideNext:self.scroll];
     }    
 }
 -(IBAction)gotoPrev:(id)sender
@@ -78,8 +98,17 @@
     {
         index--;
         self.title =[NSString stringWithFormat:@"%d of %d",index+1,(int)self.images.count+1];
-        self.imageView.image=self.images[index];
-        [self slidePrev:self.imageView];
+       // self.imageView.image=self.images[index];
+        if (mode==mLoadStaticImages)
+            self.imageView.image=self.images[index];
+        else
+        {
+            AsyncImageView *a=self.images[index];
+            UIImageView *i=(UIImageView*)[a viewWithTag:203];
+            self.imageView.image=i.image;
+            
+        }
+        [self slidePrev:self.scroll];
     }
     
 }

@@ -28,6 +28,8 @@
 @interface ViewController : UIViewController
 {
      UIScrollView *contentView;
+    enum myViewMode mode;
+
 }
 @property (nonatomic, strong) NSArray *images;
 @property (nonatomic, strong)IBOutlet UIScrollView *contentView;
