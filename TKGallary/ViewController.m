@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  TKGallary
+//  TKGallary Live images
 //
 //  Created by Toseefhusen on 18/12/13.
 //  Copyright (c) 2013 Toseef Khilji. All rights reserved.
