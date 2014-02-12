@@ -8,15 +8,20 @@
 
 #import "Detail.h"
 #import "AsyncImageView.h"
+#import "MyScrollView.h"
 @interface Detail ()
 
 @property(nonatomic,strong)IBOutlet UIImageView *imageView;
-@property(nonatomic,strong)IBOutlet UIScrollView *scroll;
+@property (weak, nonatomic) IBOutlet MyScrollView *myScroll;
+@property (weak, nonatomic) IBOutlet UIToolbar *myToolbar;
 
 @end
 
 @implementation Detail
+{
+    BOOL _oldBounces;
 
+}
 
 - (id)initWithImages:(NSArray *)images WithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil idx:(int)indx andMode:(int)modes
 {
@@ -43,30 +48,108 @@
 {
     [super viewDidLoad];
     
-    
-    if (mode==mLoadStaticImages)
-    self.imageView.image=self.images[index];
-    else
-    {
-        AsyncImageView *a=self.images[index];
-        UIImageView *i=(UIImageView*)[a viewWithTag:203];
-        self.imageView.image=i.image;
-        
-    }
-    [self.view layoutIfNeeded];
-
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(imageShare:)];
     
       //  self.navigationController.navigationBar.barTintColor=[UIColor brownColor];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(deviceOrientationChange)
-                                                 name:UIDeviceOrientationDidChangeNotification object:nil];
-    //self.imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+       //self.imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
     // Do any additional setup after loading the view from its nib.
 }
+-(void)viewDidAppear:(BOOL)animated{
+    if (mode==mLoadStaticImages)
+        gImage=self.images[index];
+    else
+    {
+        AsyncImageView *a=self.images[index];
+        UIImageView *i=(UIImageView*)[a viewWithTag:203];
+        gImage=i.image;
+        self.imageView.image=i.image;
+        
+    }
+    
+    [self loadView:gImage];
+}
+-(void)loadView:(UIImage *)image {
+  //  UIScrollView* sv = [[MyScrollView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+   
+ //   self.view=sv;
+  //  sv.backgroundColor = [UIColor blackColor];
+    
+   // UIImageView* iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bird.jpg"]];
+    self.myToolbar.hidden=FALSE;
+
+    [self.myScroll.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    UIImageView *iv = [[UIImageView alloc] initWithImage:image];
+    iv.tag = 999;
+    [self.myScroll addSubview:iv];
+    self.myScroll.contentSize = iv.bounds.size;
+    
+    UITapGestureRecognizer* t = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                        action:@selector(tapped:)];
+    t.numberOfTapsRequired = 2;
+    [iv addGestureRecognizer:t];
+    iv.userInteractionEnabled = YES;
+    
+    // feel free to play with these numbers
+    self.myScroll.maximumZoomScale = 3;
+    self.myScroll.minimumZoomScale = 0.5;
+    self.myScroll.delegate = self;
+   // CGPoint pt = CGPointMake((iv.bounds.size.width - self.myScroll.bounds.size.width)/2.0,0);
+   // [self.myScroll setContentOffset:pt animated:NO];
+    self.myScroll.bouncesZoom = NO; // try it with YES, but I like this better
+    // [ self.myScroll setZoomScale:1 animated:YES];
+    
+}
+
+- (void) scrollViewWillBeginZooming:(UIScrollView *)scrollView
+                           withView:(UIView *)view {
+    self->_oldBounces = scrollView.bounces;
+    scrollView.bounces = NO; // again, you can comment this out, but I like the result better
+}
+
+- (void) scrollViewDidEndZooming:(UIScrollView *)scrollView
+                        withView:(UIView *)view atScale:(float)scale {
+    scrollView.bounces = self->_oldBounces;
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return [scrollView viewWithTag:999];
+}
+
+// the picture is also zoomable by double-tapping
+
+- (void) tapped: (UIGestureRecognizer*) tap {
+    UIView* v = tap.view;
+    
+    UIScrollView* sv = (UIScrollView*)v.superview;
+    if (sv.zoomScale < 1) {
+        [sv setZoomScale:1 animated:YES];
+        CGPoint pt = CGPointMake((v.bounds.size.width - sv.bounds.size.width)/2.0,0);
+        [sv setContentOffset:pt animated:NO];
+    }
+    else if (sv.zoomScale < sv.maximumZoomScale){
+        [sv setZoomScale:sv.maximumZoomScale animated:YES];
+        CGRect frm=sv.frame;
+        frm.size.height+=self.myToolbar.frame.size.height;
+        sv.frame=frm;
+       self.myToolbar.hidden=TRUE;
+    }
+    else
+    {   [sv setZoomScale:sv.minimumZoomScale animated:YES];
+        self.myToolbar.hidden=FALSE;
+        CGRect frm=sv.frame;
+        frm.size.height-=self.myToolbar.frame.size.height;
+        sv.frame=frm;
+    }
+    
+}
+
+
+
+
+
 -(void)deviceOrientationChange
 {
     
@@ -80,15 +163,17 @@
         self.title =[NSString stringWithFormat:@"%d of %d",index+1,(int)self.images.count+1];
        // self.imageView.image=self.images[index];
         if (mode==mLoadStaticImages)
-            self.imageView.image=self.images[index];
+            gImage=self.images[index];
         else
         {
             AsyncImageView *a=self.images[index];
             UIImageView *i=(UIImageView*)[a viewWithTag:203];
+            gImage=i.image;
             self.imageView.image=i.image;
             
         }
-        [self slideNext:self.scroll];
+        [self loadView:gImage];
+        [self slideNext:self.myScroll];
     }    
 }
 -(IBAction)gotoPrev:(id)sender
@@ -100,28 +185,22 @@
         self.title =[NSString stringWithFormat:@"%d of %d",index+1,(int)self.images.count+1];
        // self.imageView.image=self.images[index];
         if (mode==mLoadStaticImages)
-            self.imageView.image=self.images[index];
+            gImage=self.images[index];
         else
         {
             AsyncImageView *a=self.images[index];
             UIImageView *i=(UIImageView*)[a viewWithTag:203];
+            gImage=i.image;
             self.imageView.image=i.image;
             
         }
-        [self slidePrev:self.scroll];
+        
+        [self loadView:gImage];
+        [self slidePrev:self.myScroll];
     }
     
 }
--(IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer
-{
-    recognizer.view.transform = CGAffineTransformScale(recognizer.view.transform, recognizer.scale, recognizer.scale);
-    recognizer.scale = 1;
-}
 
-- (IBAction)handleRotate:(UIRotationGestureRecognizer *)recognizer {
-    recognizer.view.transform = CGAffineTransformRotate(recognizer.view.transform, recognizer.rotation);
-    recognizer.rotation = 0;
-}
 
 -(void)slideNext:(UIView *)view
 {
@@ -168,7 +247,7 @@
 
 -(IBAction)imageShare:(id)sender
 {
-    UIImage *imageToShare = self.imageView.image;
+    UIImage *imageToShare = ((UIImageView*)[self.myScroll viewWithTag:999]).image;
     NSArray *activityItems = @[ imageToShare];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc]
                                    initWithActivityItems:activityItems applicationActivities:nil];

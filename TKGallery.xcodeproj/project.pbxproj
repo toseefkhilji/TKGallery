@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58B6281F18AB4ACC00010E9A /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B6281E18AB4ACC00010E9A /* MyScrollView.m */; };
 		58D6F9171862D35500E201BC /* UrlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D6F9151862D35500E201BC /* UrlViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		58D6F9181862D35500E201BC /* UrlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58D6F9161862D35500E201BC /* UrlViewController.xib */; };
 		58D6F91F1862D66900E201BC /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D6F91A1862D66900E201BC /* AsyncImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -61,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58B6281D18AB4ACC00010E9A /* MyScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScrollView.h; sourceTree = "<group>"; };
+		58B6281E18AB4ACC00010E9A /* MyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScrollView.m; sourceTree = "<group>"; };
 		58D6F9141862D35500E201BC /* UrlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlViewController.h; sourceTree = "<group>"; };
 		58D6F9151862D35500E201BC /* UrlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlViewController.m; sourceTree = "<group>"; };
 		58D6F9161862D35500E201BC /* UrlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UrlViewController.xib; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				58FDFF5C1861BB1400C9D11E /* Detail.h */,
 				58FDFF5D1861BB1400C9D11E /* Detail.m */,
 				58FDFF5E1861BB1400C9D11E /* Detail.xib */,
+				58B6281D18AB4ACC00010E9A /* MyScrollView.h */,
+				58B6281E18AB4ACC00010E9A /* MyScrollView.m */,
 				58D6F9221862D82500E201BC /* AsyncImageView */,
 				58FDFF611861BB9B00C9D11E /* Images */,
 				58FDFF141861B4AA00C9D11E /* Images.xcassets */,
@@ -385,6 +390,7 @@
 				58FDFF131861B4AA00C9D11E /* ViewController.m in Sources */,
 				58D6F91F1862D66900E201BC /* AsyncImageView.m in Sources */,
 				58D6F9171862D35500E201BC /* UrlViewController.m in Sources */,
+				58B6281F18AB4ACC00010E9A /* MyScrollView.m in Sources */,
 				58D6F9211862D66900E201BC /* ImageCacheObject.m in Sources */,
 				58FDFF0D1861B4AA00C9D11E /* AppDelegate.m in Sources */,
 				58D6F928186312D600E201BC /* HomeViewController.m in Sources */,

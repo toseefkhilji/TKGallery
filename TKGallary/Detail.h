@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Detail : UIViewController
+@interface Detail : UIViewController<UIScrollViewDelegate>
 {
     int index;
     enum myViewMode mode;
+    UIImage *gImage;
 
 }
 - (id)initWithImages:(NSArray *)images WithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil idx:(int)indx andMode:(int)modes;

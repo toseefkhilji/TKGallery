@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Detail">
             <connections>
-                <outlet property="imageView" destination="baE-2t-LcC" id="uYe-d9-18X"/>
-                <outlet property="scroll" destination="AEh-6i-80D" id="RTs-Sr-0Ei"/>
+                <outlet property="myScroll" destination="Ju7-8d-9HC" id="dAs-Zu-69O"/>
+                <outlet property="myToolbar" destination="JQM-vq-Wwu" id="1Nw-na-sig"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -17,44 +17,51 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEh-6i-80D">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ju7-8d-9HC" customClass="MyScrollView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baE-2t-LcC">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <gestureRecognizers/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="da9-xc-XHW" appends="YES" id="YOo-Lw-o0G"/>
-                                <outletCollection property="gestureRecognizers" destination="xd3-Vj-Yto" appends="YES" id="3cu-lY-A1M"/>
-                            </connections>
-                        </imageView>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="baE-2t-LcC" secondAttribute="bottom" id="EXI-ri-Trr"/>
-                        <constraint firstItem="baE-2t-LcC" firstAttribute="centerX" secondItem="AEh-6i-80D" secondAttribute="centerX" id="NHq-1c-nTA"/>
-                        <constraint firstItem="baE-2t-LcC" firstAttribute="centerY" secondItem="AEh-6i-80D" secondAttribute="centerY" id="bnV-ap-RwR"/>
-                        <constraint firstAttribute="trailing" secondItem="baE-2t-LcC" secondAttribute="trailing" id="hE3-Yx-5Ku"/>
-                        <constraint firstItem="baE-2t-LcC" firstAttribute="top" secondItem="AEh-6i-80D" secondAttribute="top" id="kV6-U2-KKI"/>
-                        <constraint firstItem="baE-2t-LcC" firstAttribute="leading" secondItem="AEh-6i-80D" secondAttribute="leading" id="yLc-Lc-lhJ"/>
-                    </constraints>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outletCollection property="gestureRecognizers" destination="1Oy-df-swQ" appends="YES" id="kKa-9B-tiW"/>
-                        <outletCollection property="gestureRecognizers" destination="toR-sF-2WW" appends="YES" id="6xb-3V-zQJ"/>
+                        <outlet property="delegate" destination="-1" id="tH5-li-MLJ"/>
                     </connections>
                 </scrollView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JQM-vq-Wwu">
+                    <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="eFL-K4-XMY"/>
+                        <barButtonItem systemItem="rewind" id="di8-tI-iZL">
+                            <connections>
+                                <action selector="gotoPrev:" destination="-1" id="l2r-Sv-jI3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="74" style="plain" systemItem="fixedSpace" id="Odd-5d-NQD"/>
+                        <barButtonItem systemItem="fastForward" id="81r-8F-BAV">
+                            <connections>
+                                <action selector="gotoNext:" destination="-1" id="8GE-mV-VgM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="k81-TY-mqq"/>
+                    </items>
+                </toolbar>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="AEh-6i-80D" secondAttribute="trailing" id="RdV-oi-1Ef"/>
-                <constraint firstAttribute="bottom" secondItem="AEh-6i-80D" secondAttribute="bottom" id="cFa-bS-g55"/>
-                <constraint firstItem="AEh-6i-80D" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="lqt-WL-fLW"/>
-                <constraint firstItem="AEh-6i-80D" firstAttribute="top" secondItem="1" secondAttribute="top" id="xxg-8y-S91"/>
+                <constraint firstItem="Ju7-8d-9HC" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Dn0-zw-Jlc"/>
+                <constraint firstAttribute="trailing" secondItem="Ju7-8d-9HC" secondAttribute="trailing" id="Eu4-Xc-DmL"/>
+                <constraint firstAttribute="bottom" secondItem="JQM-vq-Wwu" secondAttribute="bottom" id="PxM-eC-LZF"/>
+                <constraint firstItem="JQM-vq-Wwu" firstAttribute="trailing" secondItem="Ju7-8d-9HC" secondAttribute="trailing" id="Pyt-ta-UUf"/>
+                <constraint firstItem="JQM-vq-Wwu" firstAttribute="leading" secondItem="Ju7-8d-9HC" secondAttribute="leading" id="UzW-Vh-q1B"/>
+                <constraint firstItem="Ju7-8d-9HC" firstAttribute="top" secondItem="1" secondAttribute="top" id="Zv4-4l-iJe"/>
+                <constraint firstItem="JQM-vq-Wwu" firstAttribute="top" secondItem="Ju7-8d-9HC" secondAttribute="bottom" id="qib-f3-Ukm"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="1Oy-df-swQ" appends="YES" id="iGq-lC-hbp"/>
+                <outletCollection property="gestureRecognizers" destination="toR-sF-2WW" appends="YES" id="Gmy-nI-niF"/>
+            </connections>
         </view>
         <swipeGestureRecognizer direction="left" id="1Oy-df-swQ" userLabel="next">
             <connections>
@@ -66,15 +73,5 @@
                 <action selector="gotoPrev:" destination="-1" id="XtJ-QM-zgR"/>
             </connections>
         </swipeGestureRecognizer>
-        <pinchGestureRecognizer id="da9-xc-XHW">
-            <connections>
-                <action selector="handlePinch:" destination="-1" id="udf-BU-4la"/>
-            </connections>
-        </pinchGestureRecognizer>
-        <rotationGestureRecognizer id="xd3-Vj-Yto">
-            <connections>
-                <action selector="handleRotate:" destination="-1" id="Xs8-KH-yEA"/>
-            </connections>
-        </rotationGestureRecognizer>
     </objects>
 </document>
