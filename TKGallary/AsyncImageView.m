@@ -18,7 +18,10 @@ static ImageCache *imageCache = nil;
 
 @implementation AsyncImageView
 
-
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+}
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
     }
@@ -38,8 +41,7 @@ static ImageCache *imageCache = nil;
     [super dealloc];
 }
 
--(void)loadImageFromURL:(NSURL*)url
-{
+-(void)loadImageFromURL:(NSURL*)url {
     if (connection != nil) {
         [connection cancel];
         [connection release];
@@ -56,7 +58,9 @@ static ImageCache *imageCache = nil;
     [urlString release];
     urlString = [[url absoluteString] copy];
     UIImage *cachedImage = [imageCache imageForKey:urlString];
-   // [self setBackgroundColor:[UIColor clearColor]];
+    [self setBackgroundColor:[UIColor lightGrayColor]];
+    [self.layer setBorderColor:[[UIColor darkGrayColor]CGColor]];
+    self.layer.borderWidth=2.0;
     if (cachedImage != nil)
     {
         if ([[self subviews] count] > 0)
@@ -65,18 +69,24 @@ static ImageCache *imageCache = nil;
         }
         UIImageView *imageView = [[[UIImageView alloc] initWithImage:cachedImage] autorelease];
         [imageView setTag:203];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.autoresizingMask = 
-            UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        imageView.contentMode = UIViewContentModeScaleToFill;
+        imageView.autoresizingMask =
+        UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self addSubview:imageView];
         imageView.frame = self.bounds;
-        imageView.backgroundColor=[UIColor clearColor];
+        //        [imageView setBackgroundColor:[UIColor grayColor]];
+        //        [imageView.layer setBorderColor:[[UIColor darkGrayColor]CGColor]];
+        //        [imageView.layer setBorderWidth:3.0];
+        //
+        if([self.delegate respondsToSelector:@selector(getSyncImage:)])    {
+            [self.delegate getSyncImage:cachedImage];
+        }
         [imageView setNeedsLayout]; // is this necessary if superview gets setNeedsLayout?
         [self setNeedsLayout];
         return;
     }
     
-#define SPINNY_TAG 5555   
+#define SPINNY_TAG 5555
     
     UIActivityIndicatorView *spinny = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     spinny.tag = SPINNY_TAG;
@@ -87,13 +97,13 @@ static ImageCache *imageCache = nil;
     
     spinny.hidden=TRUE;
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:url 
-                                             cachePolicy:NSURLRequestUseProtocolCachePolicy 
+    NSURLRequest *request = [NSURLRequest requestWithURL:url
+                                             cachePolicy:NSURLRequestUseProtocolCachePolicy
                                          timeoutInterval:60.0];
     connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
-- (void)connection:(NSURLConnection *)connection 
+- (void)connection:(NSURLConnection *)connection
     didReceiveData:(NSData *)incrementalData {
     if (data==nil) {
         data = [[NSMutableData alloc] initWithCapacity:2048];
@@ -104,6 +114,7 @@ static ImageCache *imageCache = nil;
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
     [connection release];
     connection = nil;
+    [self setBackgroundColor:[UIColor lightGrayColor]];
     
     UIView *spinny = [self viewWithTag:SPINNY_TAG];
     [spinny removeFromSuperview];
@@ -116,18 +127,22 @@ static ImageCache *imageCache = nil;
     
     [imageCache insertImage:image withSize:[data length] forKey:urlString];
     
-    UIImageView *imageView = [[[UIImageView alloc] 
+    UIImageView *imageView = [[[UIImageView alloc]
                                initWithImage:image] autorelease];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.autoresizingMask = 
-        UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    imageView.contentMode = UIViewContentModeScaleToFill;
+    imageView.autoresizingMask =
+    UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [imageView setTag:203];
-    imageView.backgroundColor=[UIColor clearColor];
-
+    //    imageView.backgroundColor=[UIColor clearColor];
+    //    [imageView.layer setBorderColor:[[UIColor darkGrayColor]CGColor]];
+    //    [imageView.layer setBorderWidth:3.0];
     [self addSubview:imageView];
     imageView.frame = self.bounds;
     [imageView setNeedsLayout]; // is this necessary if superview gets setNeedsLayout?
     [self setNeedsLayout];
+    if([self.delegate respondsToSelector:@selector(getSyncImage:)])    {
+        [self.delegate getSyncImage:image];
+    }
     [data release];
     data = nil;
 }

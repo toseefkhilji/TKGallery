@@ -1,5 +1,5 @@
 //
-//  Detail.h
+//  TKDetailViewController.h
 //  NVImageGridSample
 //
 //  Created by Toseefhusen on 18/12/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Detail : UIViewController<UIScrollViewDelegate>
+@interface TKDetailViewController : UIViewController<UIScrollViewDelegate>
 {
     int index;
     enum myViewMode mode;

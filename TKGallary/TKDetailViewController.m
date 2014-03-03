@@ -1,15 +1,15 @@
 //
-//  Detail.m
+//  TKDetailViewController.m
 //  NVImageGridSample
 //
 //  Created by Toseefhusen on 18/12/13.
 //  Copyright (c) 2013 nkanaev. All rights reserved.
 //
 
-#import "Detail.h"
+#import "TKDetailViewController.h"
 #import "AsyncImageView.h"
 #import "MyScrollView.h"
-@interface Detail ()
+@interface TKDetailViewController ()
 
 @property(nonatomic,strong)IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet MyScrollView *myScroll;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation Detail
+@implementation TKDetailViewController
 {
     BOOL _oldBounces;
 
@@ -63,6 +63,7 @@
     else
     {
         AsyncImageView *a=self.images[index];
+        a.delegate=self;
         UIImageView *i=(UIImageView*)[a viewWithTag:203];
         gImage=i.image;
         self.imageView.image=i.image;
@@ -70,6 +71,13 @@
     }
     
     [self loadView:gImage];
+}
+-(void)getSyncImage:(UIImage *)image
+{
+    UIImageView *i3=(UIImageView*)[self.view viewWithTag:21];
+    i3.image=image;
+    [self loadView:image];
+    
 }
 -(void)loadView:(UIImage *)image {
   //  UIScrollView* sv = [[MyScrollView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];

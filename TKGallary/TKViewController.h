@@ -1,6 +1,6 @@
 //
-//  HomeViewController.h
-//  TKGallery
+//  TKViewController.h
+//  TKGallary
 //
 //  Created by Toseef Khilji (toseefkhilji@gmail.com) on 18/12/13.
 //
@@ -23,7 +23,19 @@
 // THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-#import "TKViewController.h"
-@interface HomeViewController : UIViewController
+
+@interface TKViewController : UIViewController
+{
+    UIScrollView *contentView;
+    enum myViewMode mode;
+    NSMutableArray *arrayAsync;
+
+}
+
+@property (nonatomic, strong) NSMutableArray *images;
+@property (nonatomic, strong)IBOutlet UIScrollView *contentView;
+- (id)initWithUrls:(NSMutableArray *)ary;
+- (id)initWithImages:(NSMutableArray *)images;
+
 
 @end

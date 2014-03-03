@@ -7,8 +7,8 @@
 //  Copyright (c) 2013 Toseef Khilji. All rights reserved.
 //
 
-#import "UrlViewController.h"
-#import "Detail.h"
+#import "TKViewController.h"
+#import "TKDetailViewController.h"
 #import "AsyncImageView.h"
 
 static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
@@ -17,7 +17,7 @@ static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
     return size;
 }
 
-@interface UrlViewController ()
+@interface TKViewController ()
 @property (strong, nonatomic)NSURL *url;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 - (void)placeImages;
@@ -26,7 +26,7 @@ static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
 - (void)deviceOrientationChange;
 @end
 
-@implementation UrlViewController
+@implementation TKViewController
 @synthesize contentView;
 
 - (id)initWithImages:(NSMutableArray *)images
@@ -147,13 +147,13 @@ static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
 - (void) myTapMethod:(UIGestureRecognizer *)sender
 {
     
-    Detail *d=[[Detail alloc]initWithImages:self.images WithNibName:@"Detail" bundle:nil idx:(int)sender.view.tag andMode:mode];
+    TKDetailViewController *d=[[TKDetailViewController alloc]initWithImages:self.images WithNibName:@"TKDetailViewController" bundle:nil idx:(int)sender.view.tag andMode:mode];
     [self.navigationController pushViewController:d animated:YES];
 }
 - (void) myTapMethodAsync:(UIGestureRecognizer *)sender
 {
     
-    Detail *d=[[Detail alloc]initWithImages:[self.contentView  subviews] WithNibName:@"Detail" bundle:nil idx:(int)sender.view.tag andMode:mode];
+    TKDetailViewController *d=[[TKDetailViewController alloc]initWithImages:[self.contentView  subviews] WithNibName:@"TKDetailViewController" bundle:nil idx:(int)sender.view.tag andMode:mode];
     [self.navigationController pushViewController:d animated:YES];
 }
 - (void)deviceOrientationChange {

@@ -1,10 +1,26 @@
 //
 //  HomeViewController.m
-//  TKGallery
+//  TKGallary
 //
-//  Created by Toseefhusen on 19/12/13.
-//  Copyright (c) 2013 Toseef Khilji. All rights reserved.
+//  Created by Toseef Khilji (toseefkhilji@gmail.com) on 18/12/13.
 //
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 #import "HomeViewController.h"
 
@@ -41,7 +57,7 @@
         [images exchangeObjectAtIndex:i withObjectAtIndex:arc4random_uniform(15)];
     }
 
-    UrlViewController *galleryCtrl=[[UrlViewController alloc]initWithImages:images];
+    TKViewController *galleryCtrl=[[TKViewController alloc]initWithImages:images];
     [self.navigationController pushViewController:galleryCtrl animated:YES];
     
 }
@@ -49,7 +65,7 @@
 -(IBAction)dynImages:(id)sender
 {
     
-    UrlViewController *galleryCtrl=[[UrlViewController alloc]initWithUrls:[self loadImagesUrl:[NSURL URLWithString:@"http://itunes.apple.com/search?term=bond&country=us&entity=movie"]]];
+    TKViewController *galleryCtrl=[[TKViewController alloc]initWithUrls:[self loadImagesUrl:[NSURL URLWithString:@"http://itunes.apple.com/search?term=bob&country=us&entity=movie"]]];
     [self.navigationController pushViewController:galleryCtrl animated:YES];
 
 

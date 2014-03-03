@@ -8,7 +8,7 @@
 //
 
 #import "ViewController.h"
-#import "Detail.h"
+#import "TKDetailViewController.h"
 
 static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
     size.width *= height / size.height;
@@ -83,7 +83,7 @@ static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
 {
     
     
-    Detail *d=[[Detail alloc]initWithImages:self.images WithNibName:@"Detail" bundle:nil idx:(int)sender.view.tag andMode:mode];
+    TKDetailViewController *d=[[TKDetailViewController alloc]initWithImages:self.images WithNibName:@"TKDetailViewController" bundle:nil idx:(int)sender.view.tag andMode:mode];
  [self.navigationController pushViewController:d animated:YES];
 }
 

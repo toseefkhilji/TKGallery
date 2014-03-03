@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		58B6281F18AB4ACC00010E9A /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B6281E18AB4ACC00010E9A /* MyScrollView.m */; };
-		58D6F9171862D35500E201BC /* UrlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D6F9151862D35500E201BC /* UrlViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		58D6F9181862D35500E201BC /* UrlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58D6F9161862D35500E201BC /* UrlViewController.xib */; };
+		58D6F9171862D35500E201BC /* TKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D6F9151862D35500E201BC /* TKViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		58D6F9181862D35500E201BC /* TKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58D6F9161862D35500E201BC /* TKViewController.xib */; };
 		58D6F91F1862D66900E201BC /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D6F91A1862D66900E201BC /* AsyncImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		58D6F9201862D66900E201BC /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D6F91C1862D66900E201BC /* ImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		58D6F9211862D66900E201BC /* ImageCacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D6F91E1862D66900E201BC /* ImageCacheObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -47,8 +47,8 @@
 		58FDFF591861BA2E00C9D11E /* 13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58FDFF481861BA2E00C9D11E /* 13.jpg */; };
 		58FDFF5A1861BA2E00C9D11E /* 14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58FDFF491861BA2E00C9D11E /* 14.jpg */; };
 		58FDFF5B1861BA2E00C9D11E /* 15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58FDFF4A1861BA2E00C9D11E /* 15.jpg */; };
-		58FDFF5F1861BB1400C9D11E /* Detail.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDFF5D1861BB1400C9D11E /* Detail.m */; };
-		58FDFF601861BB1400C9D11E /* Detail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58FDFF5E1861BB1400C9D11E /* Detail.xib */; };
+		58FDFF5F1861BB1400C9D11E /* TKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FDFF5D1861BB1400C9D11E /* TKDetailViewController.m */; };
+		58FDFF601861BB1400C9D11E /* TKDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58FDFF5E1861BB1400C9D11E /* TKDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,9 +64,9 @@
 /* Begin PBXFileReference section */
 		58B6281D18AB4ACC00010E9A /* MyScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScrollView.h; sourceTree = "<group>"; };
 		58B6281E18AB4ACC00010E9A /* MyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScrollView.m; sourceTree = "<group>"; };
-		58D6F9141862D35500E201BC /* UrlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlViewController.h; sourceTree = "<group>"; };
-		58D6F9151862D35500E201BC /* UrlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlViewController.m; sourceTree = "<group>"; };
-		58D6F9161862D35500E201BC /* UrlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UrlViewController.xib; sourceTree = "<group>"; };
+		58D6F9141862D35500E201BC /* TKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKViewController.h; sourceTree = "<group>"; };
+		58D6F9151862D35500E201BC /* TKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKViewController.m; sourceTree = "<group>"; };
+		58D6F9161862D35500E201BC /* TKViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKViewController.xib; sourceTree = "<group>"; };
 		58D6F9191862D66900E201BC /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		58D6F91A1862D66900E201BC /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		58D6F91B1862D66900E201BC /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
@@ -113,9 +113,9 @@
 		58FDFF481861BA2E00C9D11E /* 13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 13.jpg; sourceTree = "<group>"; };
 		58FDFF491861BA2E00C9D11E /* 14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 14.jpg; sourceTree = "<group>"; };
 		58FDFF4A1861BA2E00C9D11E /* 15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15.jpg; sourceTree = "<group>"; };
-		58FDFF5C1861BB1400C9D11E /* Detail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detail.h; sourceTree = "<group>"; };
-		58FDFF5D1861BB1400C9D11E /* Detail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detail.m; sourceTree = "<group>"; };
-		58FDFF5E1861BB1400C9D11E /* Detail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Detail.xib; sourceTree = "<group>"; };
+		58FDFF5C1861BB1400C9D11E /* TKDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDetailViewController.h; sourceTree = "<group>"; };
+		58FDFF5D1861BB1400C9D11E /* TKDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDetailViewController.m; sourceTree = "<group>"; };
+		58FDFF5E1861BB1400C9D11E /* TKDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,9 +142,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		58D6F9221862D82500E201BC /* AsyncImageView */ = {
+		5844A07718C495E9004AC651 /* TK Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				58D6F9141862D35500E201BC /* TKViewController.h */,
+				58D6F9151862D35500E201BC /* TKViewController.m */,
+				58D6F9161862D35500E201BC /* TKViewController.xib */,
+				58FDFF5C1861BB1400C9D11E /* TKDetailViewController.h */,
+				58FDFF5D1861BB1400C9D11E /* TKDetailViewController.m */,
+				58FDFF5E1861BB1400C9D11E /* TKDetailViewController.xib */,
+			);
+			name = "TK Gallery";
+			sourceTree = "<group>";
+		};
+		58AAF3BE18B213C900BA1E6B /* Not Used */ = {
+			isa = PBXGroup;
+			children = (
+				58FDFF111861B4AA00C9D11E /* ViewController.h */,
+				58FDFF121861B4AA00C9D11E /* ViewController.m */,
+				58FDFF331861B90C00C9D11E /* ViewController.xib */,
+			);
+			name = "Not Used";
+			sourceTree = "<group>";
+		};
+		58D6F9221862D82500E201BC /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				58B6281D18AB4ACC00010E9A /* MyScrollView.h */,
+				58B6281E18AB4ACC00010E9A /* MyScrollView.m */,
 				58D6F9191862D66900E201BC /* AsyncImageView.h */,
 				58D6F91A1862D66900E201BC /* AsyncImageView.m */,
 				58D6F91B1862D66900E201BC /* ImageCache.h */,
@@ -152,7 +177,7 @@
 				58D6F91D1862D66900E201BC /* ImageCacheObject.h */,
 				58D6F91E1862D66900E201BC /* ImageCacheObject.m */,
 			);
-			name = AsyncImageView;
+			name = Library;
 			sourceTree = "<group>";
 		};
 		58FDFEF01861B4AA00C9D11E = {
@@ -194,18 +219,8 @@
 				58D6F925186312D600E201BC /* HomeViewController.h */,
 				58D6F926186312D600E201BC /* HomeViewController.m */,
 				58D6F927186312D600E201BC /* HomeViewController.xib */,
-				58D6F9141862D35500E201BC /* UrlViewController.h */,
-				58D6F9151862D35500E201BC /* UrlViewController.m */,
-				58D6F9161862D35500E201BC /* UrlViewController.xib */,
-				58FDFF111861B4AA00C9D11E /* ViewController.h */,
-				58FDFF121861B4AA00C9D11E /* ViewController.m */,
-				58FDFF331861B90C00C9D11E /* ViewController.xib */,
-				58FDFF5C1861BB1400C9D11E /* Detail.h */,
-				58FDFF5D1861BB1400C9D11E /* Detail.m */,
-				58FDFF5E1861BB1400C9D11E /* Detail.xib */,
-				58B6281D18AB4ACC00010E9A /* MyScrollView.h */,
-				58B6281E18AB4ACC00010E9A /* MyScrollView.m */,
-				58D6F9221862D82500E201BC /* AsyncImageView */,
+				5844A07718C495E9004AC651 /* TK Gallery */,
+				58D6F9221862D82500E201BC /* Library */,
 				58FDFF611861BB9B00C9D11E /* Images */,
 				58FDFF141861B4AA00C9D11E /* Images.xcassets */,
 				58FDFF031861B4AA00C9D11E /* Supporting Files */,
@@ -216,6 +231,7 @@
 		58FDFF031861B4AA00C9D11E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				58AAF3BE18B213C900BA1E6B /* Not Used */,
 				58FDFF041861B4AA00C9D11E /* TKGallery-Info.plist */,
 				58FDFF051861B4AA00C9D11E /* InfoPlist.strings */,
 				58FDFF081861B4AA00C9D11E /* main.m */,
@@ -345,9 +361,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58D6F9181862D35500E201BC /* UrlViewController.xib in Resources */,
+				58D6F9181862D35500E201BC /* TKViewController.xib in Resources */,
 				58FDFF541861BA2E00C9D11E /* 08.jpg in Resources */,
-				58FDFF601861BB1400C9D11E /* Detail.xib in Resources */,
+				58FDFF601861BB1400C9D11E /* TKDetailViewController.xib in Resources */,
 				58FDFF591861BA2E00C9D11E /* 13.jpg in Resources */,
 				58FDFF511861BA2E00C9D11E /* 05.jpg in Resources */,
 				58FDFF581861BA2E00C9D11E /* 12.jpg in Resources */,
@@ -389,12 +405,12 @@
 			files = (
 				58FDFF131861B4AA00C9D11E /* ViewController.m in Sources */,
 				58D6F91F1862D66900E201BC /* AsyncImageView.m in Sources */,
-				58D6F9171862D35500E201BC /* UrlViewController.m in Sources */,
+				58D6F9171862D35500E201BC /* TKViewController.m in Sources */,
 				58B6281F18AB4ACC00010E9A /* MyScrollView.m in Sources */,
 				58D6F9211862D66900E201BC /* ImageCacheObject.m in Sources */,
 				58FDFF0D1861B4AA00C9D11E /* AppDelegate.m in Sources */,
 				58D6F928186312D600E201BC /* HomeViewController.m in Sources */,
-				58FDFF5F1861BB1400C9D11E /* Detail.m in Sources */,
+				58FDFF5F1861BB1400C9D11E /* TKDetailViewController.m in Sources */,
 				58FDFF091861B4AA00C9D11E /* main.m in Sources */,
 				58D6F9201862D66900E201BC /* ImageCache.m in Sources */,
 			);
