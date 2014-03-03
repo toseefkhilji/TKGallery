@@ -6,7 +6,7 @@ TKGallery can display one or more images by providing either UIImage objects.
 Photos can be zoomed and panned.  The browser can also be used to allow the user to share image to social networking sites from main detail image view.
 
 
-![logo](http://i.imgur.com/lkeEbL1.png)
+![logo](http://i.imgur.com/VqKxZsT.png)
 
 ## Requirements ##
 
