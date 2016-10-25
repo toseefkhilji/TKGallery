@@ -1,9 +1,8 @@
 //
-//  ViewController.h
-//  TKGallary
+//  HomeViewController.h
+//  TKGallery
 //
-//  Created by Toseefhusen on 18/12/13.
-//  Copyright (c) 2013 Toseef Khilji (toseefkhilji@gmail.com). All rights reserved.
+//  Created by Toseef Khilji (toseefkhilji@gmail.com) on 18/12/13.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,16 +23,7 @@
 // THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
-{
-     UIScrollView *contentView;
-    enum myViewMode mode;
-
-}
-@property (nonatomic, strong) NSArray *images;
-@property (nonatomic, strong)IBOutlet UIScrollView *contentView;
-- (id)initWithImages:(NSArray *)images;
+#import "TKViewController.h"
+@interface HomeViewController : UIViewController
 
 @end
-

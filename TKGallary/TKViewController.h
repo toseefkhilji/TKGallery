@@ -1,9 +1,8 @@
 //
-//  ViewController.h
+//  TKViewController.h
 //  TKGallary
 //
-//  Created by Toseefhusen on 18/12/13.
-//  Copyright (c) 2013 Toseef Khilji (toseefkhilji@gmail.com). All rights reserved.
+//  Created by Toseef Khilji (toseefkhilji@gmail.com) on 18/12/13.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,15 +24,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface TKViewController : UIViewController
 {
-     UIScrollView *contentView;
+    UIScrollView *contentView;
     enum myViewMode mode;
+    NSMutableArray *arrayAsync;
 
 }
-@property (nonatomic, strong) NSArray *images;
+
+@property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, strong)IBOutlet UIScrollView *contentView;
-- (id)initWithImages:(NSArray *)images;
+- (id)initWithUrls:(NSMutableArray *)ary;
+- (id)initWithImages:(NSMutableArray *)images;
+
 
 @end
-

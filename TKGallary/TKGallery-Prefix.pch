@@ -13,4 +13,9 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+enum myViewMode
+{
+    mLoadStaticImages, // == 0 (by default)
+    mLoadWebImages, // == 1 (incremented by 1 from previous)
+};
 #endif

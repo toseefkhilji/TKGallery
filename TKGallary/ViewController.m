@@ -1,13 +1,14 @@
 //
 //  ViewController.m
-//  TKGallary
+//  TKGallary Live images
+
 //
 //  Created by Toseefhusen on 18/12/13.
 //  Copyright (c) 2013 Toseef Khilji. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "Detail.h"
+#import "TKDetailViewController.h"
 
 static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
     size.width *= height / size.height;
@@ -29,6 +30,7 @@ static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
     if (self = [super init]) {
         self.images = images;
         self.title=@"TKGallery";
+        mode=mLoadStaticImages;
     }
     return self;
 }
@@ -81,9 +83,10 @@ static CGSize CGSizeResizeToHeight(CGSize size, CGFloat height) {
 {
     
     
- Detail *d=[[Detail alloc]initWithImages:self.images WithNibName:@"Detail" bundle:nil idx:(int)sender.view.tag];
+    TKDetailViewController *d=[[TKDetailViewController alloc]initWithImages:self.images WithNibName:@"TKDetailViewController" bundle:nil idx:(int)sender.view.tag andMode:mode];
  [self.navigationController pushViewController:d animated:YES];
 }
+
 - (void)deviceOrientationChange {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(placeImages) object:nil];
     [self performSelector:@selector(placeImages) withObject:nil afterDelay:1];

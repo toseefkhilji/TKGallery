@@ -1,13 +1,29 @@
 //
 //  AppDelegate.m
 //  TKGallary
+			
+//  Created by Toseef Khilji (toseefkhilji@gmail.com) on 18/12/13.
 //
-//  Created by Toseefhusen on 18/12/13.
-//  Copyright (c) 2013 Toseef Khilji. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "HomeViewController.h"
 
 @implementation AppDelegate
 
@@ -15,26 +31,32 @@
 {
     // Override point for customization after application launch.
     
-    NSMutableArray *images = [NSMutableArray array];
-    for (int i = 0; i <= 15; i++) {
-        NSString *fileName = [NSString stringWithFormat:@"%02i.jpg", i];
-        [images addObject:[UIImage imageNamed:fileName]];
-    }
-    for (int i = 0; i <= 15; i++) {
-        [images exchangeObjectAtIndex:i withObjectAtIndex:arc4random_uniform(15)];
-    }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    ViewController *galleryCtrl = [[ViewController alloc] initWithImages:images];
+    
+    
+    UIView *v=[[UIView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    v.backgroundColor=[UIColor redColor];
+    [self.window addSubview:v];
+    
+    [self.window makeKeyAndVisible];
+
+    HomeViewController *galleryCtrl = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     
     UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:galleryCtrl];
-    [[nav navigationBar] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor purpleColor]}];
-    [nav.navigationBar setBarTintColor:[UIColor lightGrayColor]];
+    [[nav navigationBar] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor orangeColor]}];
+    
+    if ([nav respondsToSelector:@selector(setBarTintColor:)])
+        [nav.navigationBar setBarTintColor:[UIColor whiteColor]];
+    
+    
+    [v removeFromSuperview];
     self.window.rootViewController = nav;
-    [self.window makeKeyAndVisible];
     return YES;
 }
-							
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
